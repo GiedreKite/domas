@@ -108,11 +108,12 @@ function renderTaskList() {
         const updateDOM = buttonsDOM[0];
         updateDOM.addEventListener('click', event => {
             event.preventDefault();
+            
 
          const validationMsg = isValidText(updateInputDOM.value);
         if (validationMsg !== true) {
 
-            showToastError(validationMsg)
+            showToastError(validationMsg);
 
         return;
         }
@@ -122,6 +123,14 @@ function renderTaskList() {
 
             showToastInfo('Iraso informacija sekmingai atnaujinta');
             
+        });
+
+        const doneeDOM = buttonsDOM[0];
+        doneeDOM.addEventListener('click', () => {
+            updateInputDOM.value = 'Atlikta';
+
+            showToastSuccess('Uzduotis atlikta');
+
         });
 
         const cancelDOM = buttonsDOM[1];
@@ -158,7 +167,7 @@ function renderTaskList() {
 
 function formatTime(timeInMs) {
 
-    const date = new Date()
+    const date = new Date(timeInMs);
     const y =date.getFullYear();
     const m = (date.getMonth() < 10 ? '0':'') +(date.getMonth()+1);
     const d = (date.getDate() < 10 ? '0':'') +(date.getDate());
