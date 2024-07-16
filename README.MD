@@ -20,12 +20,9 @@ Design: https://dribbble.com/shots/14735947--Eduhouse-Education-Management-Dashb
 ## 🎯 Project features/goals
 
 - Github pages
-- CSS files
-- CSS grid
-- CSS flex
-- SVG images
-- icons (FontAwesome, )
-- **NO** responsive design
+- forms
+- JS rendering (DOM)
+- JS events
 
 ## 🧰 Getting Started
 
