@@ -128,7 +128,7 @@ function renderTaskList() {
 
         const doneeDOM = buttonsDOM[2];
         doneeDOM.addEventListener('click', () => {
-            updateInputDOM.value = updateInputDOM.textContent + 'Atlikta';
+            updateInputDOM.textContent = updateInputDOM.textContent[i] + '-Atlikta';
             articlesDOM[i].classList.add('atlikta');
             showToastSuccess('Uzduotis atlikta');
 
@@ -156,8 +156,9 @@ function renderTaskList() {
             showToastSuccess('Irasas sekmingai istrintas');
 
         });
-    }
     localStorage.setItem('task', JSON.stringify(todoData));
+}
+    
 }
 
 
