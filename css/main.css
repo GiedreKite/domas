@@ -135,7 +135,10 @@ form>button {
 .toast[data-state='error']>.texts>.title {
     color: red;
 }
-
+.atlikta {
+    color: green;
+    background-color: greenyellow;
+}
 .toast>.close {
     width: 4rem;
     padding: 1rem;

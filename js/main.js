@@ -26,13 +26,13 @@ toastDOM.classList.remove('active')
 });
 
 
-
+const localData = localStorage.getItem('task');
 let todoData = [];
 
-const localData = localStorage.getItem('task');
+
 if (localData!== null) {
-    const localDataArray = JSON.parse(localData);
-    todoData = localDataArray;
+    todoData = JSON.parse(localData);
+
     renderList();
 }
 
@@ -51,10 +51,11 @@ submitButtonDOM.addEventListener('click', e => {
         text: textInputDOM.value.trim(),
         createdAt: Date.now(),
     });
+    localStorage.setItem('task', JSON.stringify(todoData));
     renderList();
 
     showToastSuccess('Irasas sekmingai sukurtas');
-       localStorage.setItem('task', JSON.stringify(todoData));
+       
 });
  
 
@@ -125,10 +126,10 @@ function renderTaskList() {
             
         });
 
-        const doneeDOM = buttonsDOM[0];
+        const doneeDOM = buttonsDOM[2];
         doneeDOM.addEventListener('click', () => {
-            updateInputDOM.value = 'Atlikta';
-
+            updateInputDOM.value = updateInputDOM.textContent + 'Atlikta';
+            articlesDOM[i].classList.add('atlikta');
             showToastSuccess('Uzduotis atlikta');
 
         });
@@ -156,6 +157,7 @@ function renderTaskList() {
 
         });
     }
+    localStorage.setItem('task', JSON.stringify(todoData));
 }
 
 
