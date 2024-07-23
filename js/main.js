@@ -10,7 +10,7 @@ null
 undefinded
 */
 
-const h1DOM = document.querySelector('h1');
+
 const formDOM = document.forms[0];
 const textInputDOM = formDOM.querySelector('input[type="text"]');
 const colorInputDOM = formDOM.querySelector('input[type="color"]');
@@ -27,7 +27,7 @@ toastDOM.classList.remove('active')
 });
 
 
-const localData = localStorage.getItem('task');
+const localData = localStorage.getItem('tasks');
 let todoData = [];
 
 
@@ -55,8 +55,10 @@ submitButtonDOM.addEventListener('click', e => {
         createdAt: Date.now(),
         lastEditedAt: Date.now(),
     });
-    localStorage.setItem('task', JSON.stringify(todoData));
+    
     renderList();
+    localStorage.setItem('tasks', JSON.stringify(todoData));
+    
 
     showToastSuccess('Irasas sekmingai sukurtas');
        
@@ -157,12 +159,13 @@ function renderTaskList() {
         if (deleteDOM !== null) {
             deleteDOM.addEventListener('click', () => {
                 todoData.splice(i, 1);
-                renderList();
                 showToastSuccess('Įrašas sėkmingas ištrintas.');
                 localStorage.setItem('tasks', JSON.stringify(todoData));
+                renderList();
             });
         }
     }
+    localStorage.setItem('tasks', JSON.stringify(todoData));
 }
 
 
